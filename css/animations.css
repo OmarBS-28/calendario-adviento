@@ -1,0 +1,334 @@
+/* ==========================================================================
+   ANIMACIONES Y EXPERIENCIA ESPECIAL DEL DÍA 31 (animations.css)
+   ========================================================================== */
+
+/* 1. VENTANA MODAL DEL DÍA 31 (CLÍMAX) */
+.day31-modal-card {
+  max-width: 780px;
+  width: 95%;
+  background: linear-gradient(160deg, #1b070c 0%, #101c17 40%, #2b040a 100%);
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-lg);
+  padding: 35px 26px;
+  box-shadow: 0 0 45px rgba(212, 175, 55, 0.45), 0 25px 70px rgba(0, 0, 0, 0.9);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de resplandor dorado superior */
+.day31-modal-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #d4af37, #fbe39d, #ff2a51, #fbe39d, #d4af37);
+  background-size: 200% auto;
+  animation: shimmerBorder 3s linear infinite;
+}
+
+@keyframes shimmerBorder {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.day31-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.day31-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #d4af37, #fbe39d);
+  color: #2b040a;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 18px;
+  border-radius: var(--radius-full);
+  margin-bottom: 12px;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.day31-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  margin-bottom: 6px;
+}
+
+.day31-subtitle {
+  font-family: var(--font-cursive);
+  font-size: 1.6rem;
+  color: var(--color-gold-light);
+}
+
+/* 2. PESTAÑAS DE NAVEGACIÓN EN 3 ACTOS */
+.day31-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.day31-tab-btn {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: var(--color-cream-muted);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.day31-tab-btn:hover {
+  border-color: var(--color-gold);
+  color: #fff;
+}
+
+.day31-tab-btn.active {
+  background: linear-gradient(135deg, var(--color-burgundy), var(--color-burgundy-light));
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+}
+
+/* 3. CONTENIDO EN CASCADA (LOS 3 ACTOS) */
+.day31-body-scroll {
+  overflow-y: auto;
+  flex: 1;
+  padding: 6px 4px 18px;
+  margin-bottom: 14px;
+}
+
+.day31-act-section {
+  display: none;
+  animation: fadeInAct 0.4s ease-out;
+}
+
+.day31-act-section.is-visible {
+  display: block;
+}
+
+@keyframes fadeInAct {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ACTO 1: EL BRINDIS */
+.act-toast-card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: var(--radius-md);
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.toast-icons {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.toast-quote {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: #ffffff;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+.btn-launch-celebration {
+  background: linear-gradient(135deg, #d4af37, #fbe39d);
+  color: #2b040a;
+  border: none;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 12px 26px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  transition: var(--transition-smooth);
+}
+
+.btn-launch-celebration:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.8);
+}
+
+/* ACTO 2: CARTA Y FOTOGRAFÍAS */
+.act-letter-card {
+  background: rgba(250, 245, 235, 0.05);
+  border-left: 4px solid var(--color-gold);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+  margin-bottom: 24px;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #f7eee2;
+}
+
+.letter-sign {
+  margin-top: 18px;
+  text-align: right;
+  font-family: var(--font-cursive);
+  font-size: 1.8rem;
+  color: var(--color-gold-light);
+}
+
+.act-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.gallery-memory-card {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px dashed rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 20px 14px;
+  text-align: center;
+}
+
+.gallery-memory-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.gallery-memory-text {
+  font-size: 0.85rem;
+  color: var(--color-cream-muted);
+}
+
+/* ACTO 3: CAJA DE REGALO INTERACTIVA */
+.act-surprise-card {
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.gift-box-wrapper {
+  margin: 20px auto 28px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.interactive-gift-box {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--color-burgundy), var(--color-burgundy-light));
+  border: 2px solid var(--color-gold);
+  border-radius: 16px;
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.4);
+  transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.interactive-gift-box:hover {
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(212, 175, 55, 0.6);
+  animation: gentleShake 0.5s infinite alternate;
+}
+
+@keyframes gentleShake {
+  0% { transform: scale(1.06) rotate(-3deg); }
+  100% { transform: scale(1.06) rotate(3deg); }
+}
+
+.gift-ribbon-v {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 10px);
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(180deg, #d4af37, #fbe39d);
+}
+
+.gift-ribbon-h {
+  position: absolute;
+  top: calc(50% - 10px);
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(90deg, #d4af37, #fbe39d);
+}
+
+.gift-bow {
+  position: absolute;
+  top: -18px;
+  left: calc(50% - 18px);
+  font-size: 2rem;
+  z-index: 3;
+}
+
+.gift-instruction {
+  font-size: 0.9rem;
+  color: var(--color-gold-light);
+  margin-top: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* REVELACIÓN DE LA GRAN SORPRESA (AL ABRIR LA CAJA) */
+.surprise-revealed-box {
+  display: none;
+  background: linear-gradient(145deg, rgba(80, 12, 23, 0.9), rgba(17, 54, 38, 0.9));
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  padding: 28px 22px;
+  margin-top: 20px;
+  animation: revealSurprise 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+}
+
+@keyframes revealSurprise {
+  0% { opacity: 0; transform: scale(0.7) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.surprise-revealed-icon {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+}
+
+.surprise-revealed-title {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--color-gold-light);
+  margin-bottom: 12px;
+}
+
+.surprise-revealed-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #ffffff;
+  max-width: 580px;
+  margin: 0 auto 16px;
+}
+
+.surprise-vow-tag {
+  display: inline-block;
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold-light);
+  font-family: var(--font-cursive);
+  font-size: 1.7rem;
+  padding: 6px 20px;
+  border-radius: var(--radius-full);
+}

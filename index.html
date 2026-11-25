@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario de Adviento | Para Mi Amor</title>
+  
+  <!-- Configuración PWA (Instalable en Celulares Android e iPhone) -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#6e101f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Adviento de Amor">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+
+  <!-- Tipografías de Google: Cinzel (Elegante y Clásica), Great Vibes (Romántica Cursiva) y Outfit (Moderna y legible) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Hojas de estilo -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/wallet.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Capa de nieve animada con CSS puro (ligero y sin saturar el navegador) -->
+  <div class="snowfall" aria-hidden="true">
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">✦</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">✦</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+  </div>
+
+  <!-- Contenedor principal de la página -->
+  <div class="page-wrapper">
+    
+    <!-- ====================================================================
+         1. VISTA EXCLUSIVA DE PRE-LANZAMIENTO (Visible ÚNICAMENTE antes del 1 de Diciembre)
+         ==================================================================== -->
+    <section class="prelaunch-fullscreen-view" id="prelaunchView">
+      <div class="prelaunch-card-hero">
+        <div class="prelaunch-badge">✨ Edición Especial de Navidad ✨</div>
+        
+        <h1 class="main-title">Calendario de Adviento</h1>
+        
+        <div class="couple-names">
+          <span class="sender-label">De:</span>
+          <span class="name-tag" id="prelaunchSender">Omar BS</span>
+          <span class="heart-separator">❤️</span>
+          <span class="recipient-label">Para:</span>
+          <span class="name-tag highlight-name" id="prelaunchRecipient">Ana Paula Liceaga Soto</span>
+        </div>
+
+        <p class="romantic-dedication">
+          "31 días, 31 razones para agradecer que estés en mi vida. Cada día de diciembre guarda un recuerdo, una melodía o una promesa solo para ti."
+        </p>
+
+        <!-- Tarjeta de explicación y carta introductoria -->
+        <div class="prelaunch-explanation-box">
+          <div class="explanation-icon">🎁 🎄 💖</div>
+          <h2 class="prelaunch-title">¡Tu sorpresa de Navidad se está preparando!</h2>
+          <p class="prelaunch-desc">
+            Hola mi vida hermosa ❤️ He preparado este <strong>Calendario de Adviento</strong> especialmente para ti. Del 1 al 31 de diciembre, cada día a las 12:00 am se desbloqueará una nueva casilla con cartas de amor, recuerdos especiales, canciones dedicadas, trivias donde puedes ganar algo y vales románticos que podrás canjear.
+            <br><br>
+            Por ahora, las casillas están selladas y la magia se está preparando... ¡El reloj ya está en marcha!
+          </p>
+
+          <!-- Temporizador en vivo -->
+          <div class="countdown-timer-wrapper">
+            <div class="countdown-timer" id="countdownTimer">
+              <div class="countdown-box">
+                <span class="countdown-num" id="cdDays">00</span>
+                <span class="countdown-label">Días</span>
+              </div>
+              <div class="countdown-separator">:</div>
+              <div class="countdown-box">
+                <span class="countdown-num" id="cdHours">00</span>
+                <span class="countdown-label">Horas</span>
+              </div>
+              <div class="countdown-separator">:</div>
+              <div class="countdown-box">
+                <span class="countdown-num" id="cdMinutes">00</span>
+                <span class="countdown-label">Minutos</span>
+              </div>
+              <div class="countdown-separator">:</div>
+              <div class="countdown-box">
+                <span class="countdown-num" id="cdSeconds">00</span>
+                <span class="countdown-label">Segundos</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="prelaunch-lock-notice">
+            🔒 La primera casilla se abrirá automáticamente el <strong>1 de Diciembre a las 00:00 hrs</strong>.
+          </p>
+          <small class="prelaunch-hint">
+            💡 Guarda este enlace o agrégalo a la pantalla de inicio de tu celular para visitarlo cuando el reloj llegue a cero. ¡Te amo!
+          </small>
+        </div>
+
+        <div class="prelaunch-footer">
+          <p class="footer-quote">"Contigo, cada día se siente como Navidad."</p>
+          <p class="footer-subtext">Hecho a mano con todo mi amor • Diciembre 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         2. VISTA DEL CALENDARIO ACTIVO (Visible a partir del 1 de Diciembre)
+         ==================================================================== -->
+    <div class="calendar-active-view" id="calendarActiveView">
+      <!-- ENCABEZADO Y PORTADA ROMÁNTICA -->
+      <header class="romantic-header">
+        <div class="header-badge">🎄 Edición Especial de Navidad 🎄</div>
+        
+        <h1 class="main-title">Calendario de Adviento</h1>
+        
+        <div class="couple-names">
+          <span class="sender-label">De:</span>
+          <span class="name-tag" id="senderNameDisplay">[Tu Nombre]</span>
+          <span class="heart-separator">❤️</span>
+          <span class="recipient-label">Para:</span>
+          <span class="name-tag highlight-name" id="recipientNameDisplay">[Nombre de tu Novia]</span>
+        </div>
+
+        <p class="romantic-dedication">
+          "31 días, 31 razones para agradecer que estés en mi vida. Cada día de diciembre guarda un recuerdo, una melodía o una promesa solo para ti."
+        </p>
+
+        <!-- Barra de información y estado -->
+        <div class="status-bar">
+          <div class="status-pill">
+            <span class="icon">✨</span>
+            <span><strong>Diciembre:</strong> 31 Sorpresas</span>
+          </div>
+          <div class="status-pill">
+            <span class="icon">🎁</span>
+            <span id="unlockedCounter">Descubiertos: <strong>0 / 31</strong></span>
+          </div>
+          <button class="spotify-btn-header" id="spotifyBtnHeader" onclick="openSpotifyModal()" title="Nuestra Playlist de Spotify">
+            <span class="icon">🎧</span>
+            <span>Nuestra Playlist</span>
+          </button>
+          <button class="wallet-btn-preview" id="walletBtnPreview" onclick="openWalletModal()" title="Abrir Mi Wallet de Amor">
+            <span class="icon">💌</span>
+            <span>Mi Wallet de Amor</span>
+            <span class="badge-tag" id="walletBadge">0 cupones</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- SECCIÓN DEL TABLERO: 31 CASILLAS DE ADVIENTO -->
+      <main class="calendar-container">
+        <div class="calendar-intro">
+          <h2>Nuestra cuenta regresiva de Diciembre</h2>
+          <p id="calendarStatusNotice">Cada día se desbloqueará una nueva sorpresa. ¡Toca una casilla para comenzar!</p>
+        </div>
+
+        <!-- Cuadrícula con las 31 casillas generadas -->
+        <div class="calendar-grid" id="calendarGrid"></div>
+      </main>
+
+      <!-- PIE DE PÁGINA -->
+      <footer class="romantic-footer">
+        <p class="footer-quote">"Contigo, cada día se siente como Navidad."</p>
+        <p class="footer-subtext">Hecho a mano con todo mi amor • Diciembre 2026</p>
+      </footer>
+    </div>
+
+  </div>
+
+  </div>
+
+  <!-- VENTANA MODAL (VISTA DE LA SORPRESA DEL DÍA 1 AL 30) -->
+  <div class="modal-backdrop" id="dayModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Cerrar">&times;</button>
+      
+      <div class="modal-header-ribbon">
+        <span class="ribbon-icon">✨</span>
+        <span class="modal-day-badge" id="modalDayNumber">Día 1 de Diciembre</span>
+        <span class="ribbon-icon">✨</span>
+      </div>
+
+      <h3 class="modal-title" id="modalTitle">Título de la sorpresa</h3>
+      
+      <div class="modal-content-area" id="modalContentArea"></div>
+
+      <div class="modal-footer-info">
+        <div class="footer-tag" id="modalTypeTag">
+          <span>🎁 Tipo de sorpresa</span>
+        </div>
+        <button class="btn-primary" id="modalActionBtn">Volver al Calendario</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="lockedModal" aria-hidden="true">
+    <div class="modal-card modal-card-locked">
+      <button class="modal-close" id="lockedModalCloseBtn" aria-label="Cerrar">&times;</button>
+      
+      <div class="locked-icon-wrapper">
+        <span class="locked-lock-icon">🔒</span>
+        <span class="locked-sparkle">✨</span>
+      </div>
+
+      <h3 class="locked-title">¡Aún no es tiempo, mi amor! 🎄</h3>
+      
+      <p class="locked-message" id="lockedModalMessage">
+        Esta sorpresa está guardada bajo llave hasta que llegue el día indicado de diciembre.
+      </p>
+
+      <div class="locked-date-badge" id="lockedUnlockDateBadge">
+        Se desbloquea el: <strong>Día X de Diciembre</strong>
+      </div>
+
+      <button class="btn-primary" id="lockedModalActionBtn">Entendido, seré paciente ❤️</button>
+    </div>
+  </div>
+
+  <!-- VENTANA MODAL: MI WALLET DE AMOR (CUPONERA DIGITAL) -->
+  <div class="modal-backdrop" id="walletModal" aria-hidden="true">
+    <div class="modal-card wallet-modal-card">
+      <button class="modal-close" id="walletModalCloseBtn" aria-label="Cerrar">&times;</button>
+      
+      <div class="wallet-header">
+        <div class="header-badge">🎟️ Colección de Vales y Deseos 🎟️</div>
+        <h2 class="wallet-title">Mi Wallet de Amor</h2>
+        <p class="wallet-subtitle" id="walletCountSubtitle">
+          Aquí se guardan todos los cupones que vas descubriendo en el calendario.
+        </p>
+
+        <!-- Filtros de Cupones -->
+        <div class="wallet-filters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="available">Disponibles</button>
+          <button class="filter-btn" data-filter="redeemed">Canjeados</button>
+        </div>
+      </div>
+
+      <!-- Área desplazable de cupones -->
+      <div class="wallet-content-scroll">
+        <!-- Cuadrícula donde se insertan los tickets -->
+        <div class="wallet-coupons-grid" id="walletCouponsGrid"></div>
+
+        <!-- Estado vacío si aún no descubre cupones -->
+        <div class="wallet-empty-state" id="walletEmptyState" style="display: none;">
+          <div class="wallet-empty-icon">🎁</div>
+          <h3>Aún no has descubierto ningún cupón</h3>
+          <p>
+            A medida que abras los días de diciembre en el calendario, tus cupones de amor se acumularán automáticamente aquí.
+          </p>
+          <button class="btn-primary" onclick="closeWalletModal()" style="max-width: 250px; margin: 0 auto;">
+            Ir al Calendario
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VENTANA MODAL DEL DÍA 31: GRAN CELEBRACIÓN DE FIN DE AÑO (EN 3 ACTOS) -->
+  <div class="modal-backdrop" id="day31Modal" aria-hidden="true">
+    <div class="modal-card day31-modal-card">
+      <button class="modal-close" id="day31CloseBtn" aria-label="Cerrar">&times;</button>
+      
+      <div class="day31-header">
+        <span class="day31-badge">🎆 31 DE DICIEMBRE • NOCHEVIEJA 🎆</span>
+        <h2 class="day31-title">¡El Gran Cierre de Nuestro Año!</h2>
+        <p class="day31-subtitle">"Gracias por hacer de cada instante un recuerdo imborrable"</p>
+      </div>
+
+      <!-- Selector de Actos -->
+      <div class="day31-tabs">
+        <button class="day31-tab-btn active" data-act="toast">🥂 Acto 1: El Brindis</button>
+        <button class="day31-tab-btn" data-act="letter">💌 Acto 2: Carta & Recuerdos</button>
+        <button class="day31-tab-btn" data-act="surprise">🎁 Acto 3: La Gran Sorpresa</button>
+      </div>
+
+      <!-- Contenido en 3 Actos -->
+      <div class="day31-body-scroll">
+        
+        <!-- ACTO 1: EL BRINDIS DE FIN DE AÑO -->
+        <div class="day31-act-section is-visible" id="act-toast">
+          <div class="act-toast-card">
+            <div class="toast-icons">🥂 ✨ 🍾</div>
+            <p class="toast-quote">
+              "Llegamos al final de este calendario, pero apenas estamos comenzando a escribir los mejores capítulos de nuestra historia juntos."
+            </p>
+            <p style="color: var(--color-cream-muted); margin-bottom: 24px;">
+              Toca el botón para brindar conmigo y celebrar todo el amor que compartimos:
+            </p>
+            <button class="btn-launch-celebration" id="btnLaunchCelebration">
+              ✨ ¡Brindar y Festejar con Confeti! 🎆
+            </button>
+          </div>
+        </div>
+
+        <!-- ACTO 2: CARTA Y FOTOGRAFÍAS -->
+        <div class="day31-act-section" id="act-letter">
+          <div class="act-letter-card">
+            <p id="day31LetterText">
+              <strong>Mi amor eterno:</strong><br><br>
+              Hace 31 días empezamos este camino juntos a través de diciembre, recordando momentos, canciones y risas. Pero hoy que el año termina, solo quiero decirte algo con toda la fuerza de mi alma:
+              <br><br>
+              Gracias por cada abrazo cuando más lo necesité, por iluminar mis días nublados y por hacerme sentir el hombre más afortunado del universo con solo sostener mi mano. Prometo seguir cuidando de ti, apoyando tus sueños y amándote con la misma emoción que el primer día.
+            </p>
+            <div class="letter-sign" id="day31LetterSign">Por siempre tuyo, con todo mi corazón ❤️</div>
+          </div>
+
+          <h4 style="font-family: var(--font-serif); color: var(--color-gold-light); margin-bottom: 12px; text-align: center;">
+            📸 Nuestros momentos favoritos del año
+          </h4>
+          <div class="act-gallery-grid" id="day31GalleryGrid">
+            <!-- Renderizado dinámicamente desde days-data.js (recuerdosAno) -->
+          </div>
+        </div>
+
+        <!-- ACTO 3: LA GRAN SORPRESA INTERACTIVA -->
+        <div class="day31-act-section" id="act-surprise">
+          <div class="act-surprise-card">
+            <h3 style="font-family: var(--font-serif); color: #fff; font-size: 1.4rem; margin-bottom: 8px;">
+              Tu Regalo de Año Nuevo 🎁
+            </h3>
+            <p style="color: var(--color-cream-muted); max-width: 480px; margin: 0 auto;">
+              Hay una promesa especial guardada en esta caja. Toca el regalo para abrirlo:
+            </p>
+
+            <!-- Caja de regalo interactiva -->
+            <div class="gift-box-wrapper" id="giftBoxWrapper">
+              <div class="interactive-gift-box" id="giftBoxInteractive">
+                <div class="gift-ribbon-v"></div>
+                <div class="gift-ribbon-h"></div>
+                <div class="gift-bow">🎀</div>
+              </div>
+              <div class="gift-instruction">✨ ¡Toca la caja para abrirla! ✨</div>
+            </div>
+
+            <!-- Contenedor que se revela al tocar la caja -->
+            <div class="surprise-revealed-box" id="surpriseRevealedBox">
+              <div class="surprise-revealed-icon">💍 💖 👑</div>
+              <h3 class="surprise-revealed-title">¡Mi Promesa para el Año que Viene!</h3>
+              <p class="surprise-revealed-text">
+                "Prometo hacerte sonreír cada día, escucharte con atención, abrazarte en los momentos difíciles y festejar cada uno de tus triunfos como si fuera mío. Mi mayor bendición es recibir el nuevo año a tu lado."
+              </p>
+              <div class="surprise-vow-tag">¡Feliz Año Nuevo, Mi Vida Hermosa! ✨</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <button class="btn-primary" onclick="closeDay31Experience()" style="max-width: 240px; margin: 0 auto;">
+          Volver al Calendario
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VENTANA MODAL: NUESTRA PLAYLIST EN SPOTIFY -->
+  <div class="modal-backdrop" id="spotifyModal" aria-hidden="true">
+    <div class="modal-card spotify-modal-card">
+      <button class="modal-close" id="spotifyModalCloseBtn" onclick="closeSpotifyModal()" aria-label="Cerrar">&times;</button>
+      
+      <div class="header-badge">🎵 Banda Sonora de Nuestro Amor 🎵</div>
+      <h3 class="modal-title" id="spotifyTitleDisplay">Nuestra Playlist en Spotify</h3>
+      <p style="text-align:center; color:var(--color-cream-muted); font-size: 0.95rem; margin-bottom:16px;" id="spotifyDescDisplay">
+        Escanéalo con la cámara de Spotify o de tu celular para escuchar juntos nuestras canciones favoritas.
+      </p>
+
+      <div class="spotify-qr-wrapper">
+        <div id="spotifyQrContainer" class="spotify-qr-display"></div>
+        <span class="spotify-qr-sublabel"></span>
+      </div>
+
+      <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 10px;">
+        <a id="spotifyDirectLink" href="#" target="_blank" rel="noopener noreferrer" class="btn-spotify-direct">
+          <span style="font-size: 1.25rem;">🟢</span>
+          <span>Abrir en Spotify</span>
+        </a>
+        <button class="btn-primary" onclick="closeSpotifyModal()" style="background: rgba(255,255,255,0.08); border-color: rgba(212,175,55,0.35);">
+          Volver al Calendario
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISOR DE FOTOGRAFÍAS EN PANTALLA COMPLETA (LIGHTBOX / ZOOM) -->
+  <div class="lightbox-backdrop" id="imageLightbox" aria-hidden="true" onclick="closeLightbox(event)">
+    <button class="lightbox-close" id="lightboxCloseBtn" aria-label="Cerrar visor" onclick="closeLightbox()">&times;</button>
+    <div class="lightbox-container" onclick="event.stopPropagation()">
+      <img id="lightboxImg" class="lightbox-image" src="" alt="Fotografía en tamaño completo">
+      <p id="lightboxCaption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <!-- BARRA FLOTANTE DE PRUEBAS / MODO DESARROLLADOR (Solo visible si devMode: true) -->
+  <div class="dev-bar" id="devBar" style="display: none;">
+    <div class="dev-bar-header">
+      <span class="dev-tag">🛠️ MODO DE PRUEBA (DESARROLLO)</span>
+      <button class="dev-toggle-btn" id="devToggleBtn" title="Minimizar panel">−</button>
+    </div>
+    <div class="dev-bar-body" id="devBarBody">
+      <div class="dev-control-group">
+        <label for="devDateSelect">Simular fecha de Diciembre:</label>
+        <select id="devDateSelect"></select>
+      </div>
+      <div class="dev-actions">
+        <button class="dev-btn dev-btn-unlock" id="devUnlockAllBtn" title="Desbloquea las 31 casillas para revisar todo de una vez">
+          🔓 Desbloquear todo
+        </button>
+        <button class="dev-btn dev-btn-reset" id="devResetBtn" title="Borra el progreso guardado en el navegador">
+          🔄 Reiniciar progreso
+        </button>
+      </div>
+      <small class="dev-hint">Nota: Este panel desaparecerá cuando cambies <code>devMode: false</code> en <code>days-data.js</code>.</small>
+    </div>
+  </div>
+
+  <!-- 1. Cargar datos y configuración -->
+  <script src="js/days-data.js"></script>
+  
+  <!-- 2. Librerías auxiliares (QR y Confeti) -->
+  <script src="js/lib/qrcode.min.js"></script>
+  <script src="js/lib/confetti.min.js"></script>
+
+  <!-- 3. Experiencia especial Día 31 -->
+  <script src="js/day31.js"></script>
+
+  <!-- 4. Lógica principal del calendario -->
+  <script src="js/app.js"></script>
+
+  <!-- 5. Lógica de la Cuponera y Wallet -->
+  <script src="js/wallet.js"></script>
+
+  <!-- 6. Registro de Service Worker para PWA (Instalable en Celular) -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').then((reg) => {
+          console.log('Service Worker registrado correctamente (PWA lista):', reg.scope);
+        }).catch((err) => {
+          console.log('Registro de SW omitido o no soportado en este entorno:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
