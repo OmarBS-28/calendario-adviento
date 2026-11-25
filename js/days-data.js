@@ -38,7 +38,7 @@ const CALENDAR_CONFIG = {
    * 
    * IMPORTANTE: Cambia este valor a 'false' justo antes de enviárselo a tu novia.
    */
-  devMode: true
+  devMode: false
 };
 
 /**
